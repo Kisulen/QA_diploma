@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PositiveTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-05-04T20:26:34" hostname="DESKTOP-I5758HF" time="18.531">
+  <properties/>
+  <testcase name="shouldSuccessfullyPayForTourWithCard()" classname="PositiveTests" time="5.826"/>
+  <testcase name="shouldDeclineCardPaymentFromDeclinedCard()" classname="PositiveTests" time="2.587"/>
+  <testcase name="shouldSuccessfullyPayForTourWithCredit()" classname="PositiveTests" time="6.74"/>
+  <testcase name="shouldDeclineCreditPaymentFromDeclinedCard()" classname="PositiveTests" time="3.371"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

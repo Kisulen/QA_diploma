@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="NegativeTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-05-04T20:26:07" hostname="DESKTOP-I5758HF" time="27.078">
+  <properties/>
+  <testcase name="shouldFailWithRandomCredit()" classname="NegativeTests" time="15.485"/>
+  <testcase name="shouldFailWithRandomCard()" classname="NegativeTests" time="10.123"/>
+  <testcase name="shouldFailIfAllFieldsEmptyCard()" classname="NegativeTests" time="0.754"/>
+  <testcase name="shouldFailIfAllFieldsEmptyCredit()" classname="NegativeTests" time="0.709"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 112.0.5615.49 (bd2a7bcb881c11e8cfe3078709382934e3916914-refs/branch-heads/5615@{#936}) on port 10325
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+мая 04, 2023 11:26:10 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 112, so returning the closest version found: 110
+]]></system-err>
+</testsuite>
