@@ -60,6 +60,8 @@ public class CardDetailsPage {
         errorNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 
+    public void errorNotificationNotVisible() { errorNotification.shouldNotBe(Condition.visible, Duration.ofSeconds(15)); }
+
 
     public void allWrongNotificationsVisible() {
         cardNumberWrongFormatNotification.shouldBe(Condition.visible);
