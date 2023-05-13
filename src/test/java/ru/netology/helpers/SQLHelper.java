@@ -11,18 +11,25 @@ import java.sql.DriverManager;
 
 public class SQLHelper {
     private static QueryRunner runner = new QueryRunner();
+    public static final String mySQLAddress = "jdbc:mysql://localhost:3306/app";
+    public static final String mySqlDBName = "app";
+    public static final String mySQLPassword = "pass";
+    public static final String postgreAddress = "jdbc:postgresql://localhost:5432/app";
+    public static final String postgreDBname = "app";
+    public static final String postgrePassword = "pass";
+
 
     private SQLHelper() {
     }
 
     @SneakyThrows
     private static Connection getMySQLConn() {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
+        return DriverManager.getConnection(mySQLAddress, mySqlDBName, mySQLPassword);
     }
 
     @SneakyThrows
     private static Connection getPostgreConn() {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass");
+        return DriverManager.getConnection(postgreAddress, postgreDBname, postgrePassword);
     }
 
     @SneakyThrows
