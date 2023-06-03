@@ -11,12 +11,12 @@ import java.sql.DriverManager;
 
 public class SQLHelper {
     private static QueryRunner runner = new QueryRunner();
-    public static final String mySQLAddress = "jdbc:mysql://localhost:3306/app";
-    public static final String mySqlDBName = "app";
-    public static final String mySQLPassword = "pass";
-    public static final String postgreAddress = "jdbc:postgresql://localhost:5432/app";
-    public static final String postgreDBname = "app";
-    public static final String postgrePassword = "pass";
+    public static final String mySQLAddress = System.getProperty("db.url");
+    public static final String mySqlDBName = System.getProperty("db.user");
+    public static final String mySQLPassword = System.getProperty("db.password");
+    public static final String postgreAddress = System.getProperty("sut.url");
+    public static final String postgreDBname = System.getProperty("db.user");
+    public static final String postgrePassword = System.getProperty("db.password");
 
 
     private SQLHelper() {

@@ -5,4 +5,3 @@ node_modules
 target
 *.iml
 .gradle
-/artifacts
