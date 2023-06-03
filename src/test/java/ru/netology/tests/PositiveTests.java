@@ -6,6 +6,7 @@ import ru.netology.helpers.SQLHelper;
 import ru.netology.pages.InitialPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PositiveTests {
 
@@ -18,7 +19,7 @@ public class PositiveTests {
         cardDetailsPage.fillInCardDetails(cardInfo);
         cardDetailsPage.okNotificationVisible();
         cardDetailsPage.errorNotificationNotVisible();
-        SQLHelper.returnStatusOfTransactionMysql().equals("APPROVED");
+        assertEquals("APPROVED", SQLHelper.returnStatusOfTransaction());
     }
 
     @Test
@@ -29,7 +30,7 @@ public class PositiveTests {
         var cardInfo = DataHelper.getDeclinedCardInfo();
         cardDetailsPage.fillInCardDetails(cardInfo);
         cardDetailsPage.errorNotificationVisible();
-        SQLHelper.returnStatusOfTransactionMysql().equals("DECLINED");
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
     }
 
     @Test
@@ -41,7 +42,7 @@ public class PositiveTests {
         creditDetailsPage.fillInCardDetails(cardInfo);
         creditDetailsPage.okNotificationVisible();
         creditDetailsPage.errorNotificationNotVisible();
-        SQLHelper.returnStatusOfTransactionMysql().equals("APPROVED");
+        assertEquals("APPROVED", SQLHelper.returnStatusOfTransaction());
     }
 
     @Test
@@ -52,6 +53,6 @@ public class PositiveTests {
         var cardInfo = DataHelper.getDeclinedCardInfo();
         creditDetailsPage.fillInCardDetails(cardInfo);
         creditDetailsPage.errorNotificationVisible();
-        SQLHelper.returnStatusOfTransactionMysql().equals("DECLINED");
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
     }
 }

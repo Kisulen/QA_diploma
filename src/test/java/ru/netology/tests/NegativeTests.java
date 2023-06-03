@@ -6,6 +6,7 @@ import ru.netology.helpers.SQLHelper;
 import ru.netology.pages.InitialPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NegativeTests {
     @Test
@@ -16,7 +17,7 @@ public class NegativeTests {
         var randomInfo = DataHelper.getRandomCardInfo();
         cardDetailsPage.fillInCardDetails(randomInfo);
         cardDetailsPage.errorNotificationVisible();
-        SQLHelper.returnStatusOfTransactionPostgre().equals("DECLINED");
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
     }
 
     @Test
@@ -27,7 +28,7 @@ public class NegativeTests {
         var randomInfo = DataHelper.getRandomCardInfo();
         creditDetailsPage.fillInCardDetails(randomInfo);
         creditDetailsPage.errorNotificationVisible();
-        SQLHelper.returnStatusOfTransactionPostgre().equals("DECLINED");
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
     }
 
     @Test
@@ -37,7 +38,7 @@ public class NegativeTests {
         var cardDetailsPage = initialPage.shouldOpenCardDetails();
         cardDetailsPage.leaveFieldsBlank();
         cardDetailsPage.allWrongNotificationsVisible();
-        SQLHelper.returnStatusOfTransactionPostgre().equals("DECLINED");
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
     }
 
     @Test
@@ -47,7 +48,7 @@ public class NegativeTests {
         var creditDetailsPage = initialPage.shouldOpenCardDetails();
         creditDetailsPage.leaveFieldsBlank();
         creditDetailsPage.allWrongNotificationsVisible();
-        SQLHelper.returnStatusOfTransactionPostgre().equals("DECLINED");
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
     }
 
 }

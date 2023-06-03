@@ -12,11 +12,9 @@ import java.sql.DriverManager;
 public class SQLHelper {
     private static QueryRunner runner = new QueryRunner();
     public static final String mySQLAddress = System.getProperty("db.url");
-    public static final String mySqlDBName = System.getProperty("db.user");
-    public static final String mySQLPassword = System.getProperty("db.password");
+    public static final String DBName = System.getProperty("db.user");
+    public static final String Password = System.getProperty("db.password");
     public static final String postgreAddress = System.getProperty("sut.url");
-    public static final String postgreDBname = System.getProperty("db.user");
-    public static final String postgrePassword = System.getProperty("db.password");
 
 
     private SQLHelper() {
@@ -24,25 +22,18 @@ public class SQLHelper {
 
     @SneakyThrows
     private static Connection getMySQLConn() {
-        return DriverManager.getConnection(mySQLAddress, mySqlDBName, mySQLPassword);
+        return DriverManager.getConnection(mySQLAddress, DBName, Password);
     }
 
     @SneakyThrows
     private static Connection getPostgreConn() {
-        return DriverManager.getConnection(postgreAddress, postgreDBname, postgrePassword);
+        return DriverManager.getConnection(postgreAddress, DBName, Password);
     }
 
     @SneakyThrows
-    public static String returnStatusOfTransactionMysql() {
+    public static String returnStatusOfTransaction() {
         var codeSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
-        var conn = getMySQLConn();
-        var status = runner.query(conn, codeSQL, new ScalarHandler<>());
-        return String.valueOf(status);
-            }
-
-    @SneakyThrows
-    public static String returnStatusOfTransactionPostgre() {
-        var codeSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
+        //var conn = getMySQLConn();
         var conn = getPostgreConn();
         var status = runner.query(conn, codeSQL, new ScalarHandler<>());
         return String.valueOf(status);
