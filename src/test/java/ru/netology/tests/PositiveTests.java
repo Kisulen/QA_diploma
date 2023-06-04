@@ -19,7 +19,7 @@ public class PositiveTests {
         cardDetailsPage.fillInCardDetails(cardInfo);
         cardDetailsPage.okNotificationVisible();
         cardDetailsPage.errorNotificationNotVisible();
-        assertEquals("APPROVED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("APPROVED", SQLHelper.returnStatusOfTransactionCard());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class PositiveTests {
         var cardInfo = DataHelper.getDeclinedCardInfo();
         cardDetailsPage.fillInCardDetails(cardInfo);
         cardDetailsPage.errorNotificationVisible();
-        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransactionCard());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class PositiveTests {
         creditDetailsPage.fillInCardDetails(cardInfo);
         creditDetailsPage.okNotificationVisible();
         creditDetailsPage.errorNotificationNotVisible();
-        assertEquals("APPROVED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("APPROVED", SQLHelper.returnStatusOfTransactionCredit());
     }
 
     @Test
@@ -53,6 +53,6 @@ public class PositiveTests {
         var cardInfo = DataHelper.getDeclinedCardInfo();
         creditDetailsPage.fillInCardDetails(cardInfo);
         creditDetailsPage.errorNotificationVisible();
-        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransactionCredit());
     }
 }

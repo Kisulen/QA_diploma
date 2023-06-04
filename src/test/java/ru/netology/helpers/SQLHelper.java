@@ -31,8 +31,17 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public static String returnStatusOfTransaction() {
-        var codeSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
+    public static String returnStatusOfTransactionCard() {
+        var codeSQL = "SELECT status FROM payment_entity";
+        //var conn = getMySQLConn();
+        var conn = getPostgreConn();
+        var status = runner.query(conn, codeSQL, new ScalarHandler<>());
+        return String.valueOf(status);
+    }
+
+    @SneakyThrows
+    public static String returnStatusOfTransactionCredit() {
+        var codeSQL = "SELECT status FROM credit_request_entity";
         //var conn = getMySQLConn();
         var conn = getPostgreConn();
         var status = runner.query(conn, codeSQL, new ScalarHandler<>());

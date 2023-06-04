@@ -17,7 +17,7 @@ public class NegativeTests {
         var randomInfo = DataHelper.getRandomCardInfo();
         cardDetailsPage.fillInCardDetails(randomInfo);
         cardDetailsPage.errorNotificationVisible();
-        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransactionCard());
     }
 
     @Test
@@ -28,7 +28,7 @@ public class NegativeTests {
         var randomInfo = DataHelper.getRandomCardInfo();
         creditDetailsPage.fillInCardDetails(randomInfo);
         creditDetailsPage.errorNotificationVisible();
-        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransactionCredit());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class NegativeTests {
         var cardDetailsPage = initialPage.shouldOpenCardDetails();
         cardDetailsPage.leaveFieldsBlank();
         cardDetailsPage.allWrongNotificationsVisible();
-        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransactionCard());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class NegativeTests {
         var creditDetailsPage = initialPage.shouldOpenCardDetails();
         creditDetailsPage.leaveFieldsBlank();
         creditDetailsPage.allWrongNotificationsVisible();
-        assertEquals("DECLINED", SQLHelper.returnStatusOfTransaction());
+        assertEquals("DECLINED", SQLHelper.returnStatusOfTransactionCredit());
     }
 
 }
